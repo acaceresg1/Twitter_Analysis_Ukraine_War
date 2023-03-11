@@ -10,9 +10,9 @@
 Term II group project for Modern Data Architectures for Big Data II class at IE university - part of the Masters in Business Analytics and Big Data program.
 
 The first goal is to build a big data pipeline using all the technologies reviewed during both Modern Data Architectures for Big Data I & II subjects.
-The architecture goes from the ingestion part using NiFi, the storage using HDFS, the processing part using Hadoop and some of its tools available, and finally to the serving using MariaDB.
+The architecture goes from the ingestion part using NiFi, the storage using HDFS, the processing part using Hadoop and some of its tools available, and finally the serving using MariaDB.
 
-The second project goal is to analyze using the architecture created a bulk of tweets regarding the Ukraine War as a social media that could be the perfect tool for spreading (mis)information.
+The second project goal is to analyze, using the architecture created, a bulk of tweets regarding the Ukraine War as a social media could be the perfect tool for spreading (mis)information.
 Russia has a powerful propaganda machine so it is important to uncover false or illegal information to prevent fake information and to ban/block extreme users.
 
 For the bulk analysis was performed an initial EDA, a graphing algorithm, and machine learning algorithms to predict verified accounts.
@@ -25,12 +25,12 @@ The main goal of this lab is to build and establish a data architecture to inges
 For this project, Lambda Architecture was used as it covers all the necessities. The Lambda architectures contain both a batch and a streaming layer, so let's explain in detail each: 
 
 The batch layer uses Nifi to perform the ingestion, and Hadoop HDFS to promote from the raw to the standard layer, storing the Ukraine-War training set.
-To ingest the data, was used Apache NiFi to pull tweets from the Twitter API, using popular hashtags related to the war. During 7 days, more than 6 hours per day, Nifi was able to ingest 100,000 tweets pertaining to the war.
+To ingest the data was used Apache NiFi to pull tweets from the Twitter API, using popular hashtags related to the war. During 7 days, more than 6 hours per day, Nifi was able to ingest 100,000 tweets pertaining to the war.
 Finally, Apache Spark is used to perform the EDA, and with Apache GraphX and Apache ML the graph and the machine learning pipeline to get insights.
-It is important to mention that as the database for the streaming layer was used a txt file was created during the storage stage.
+It is important to mention that during the storage stage of this batch layer, a txt file with all the tweets was created and saved, serving as a database for the further streaming layer.
 
-The streaming layer was simulated using a producer.py ingesting tweets directly from the txt file mentioned before into Kafka. 
-A Spark session was used as the processing engine to build some main queries to the tweet income flow in real time. Then before the serving stage, an external static CSV was joined with our data in real-time
+The streaming layer was in the end a simulator, as the course goal tried to be familiar with some of the Big Data landscape tools, using a producer.py that ingests tweets directly from the txt file mentioned previously into Kafka. 
+A Spark session was used as the processing engine to build some main queries to the tweet income flow in real-time. Then before the serving stage, an external static CSV was joined with our data in real-time
 creating a new table with specific information, which was served using MariaDB to the final user. Using MariaDB the user can query and obtain real-time answers to its necessity.
 
 ![imagen](https://user-images.githubusercontent.com/115701510/196969868-efd610a6-571a-45b7-b038-a624fe5c09a1.png)
