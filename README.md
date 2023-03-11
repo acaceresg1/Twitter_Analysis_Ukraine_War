@@ -3,7 +3,7 @@
 ## Code & Resources Used:
 
 ** Python:** Version 3.8
-** Packages:** PySpark (), pandas, matplotlib, datetime, GraphFrame
+** Packages:** PySpark, pandas, matplotlib, datetime, GraphFrame
 
 ## Executive Summary:
 
